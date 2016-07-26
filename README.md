@@ -1,7 +1,4 @@
-# Boris_Bikes2
-
-Boris Bikes - Take 2
-===========
+## Boris Bikes - Take 2
 
 Another attempt at Boris Bikes, week 1 of Makers Academy. Attempt 1 is [here.](https://github.com/alexfakhri/Boris-Bikes)
 

@@ -28,7 +28,4 @@ module BikeContainer
     bikes.count >= capacity
   end
 
-  private
-
-
 end
