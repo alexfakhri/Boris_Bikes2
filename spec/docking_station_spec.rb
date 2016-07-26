@@ -2,6 +2,8 @@ require 'docking_station'
 
 describe DockingStation do
 
+  it_behaves_like BikeContainer
+
   describe '#release_bike' do
 
     let(:bike) { double(:bike, broken?: false, working?: true) }
