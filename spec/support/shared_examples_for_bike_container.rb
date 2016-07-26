@@ -1,7 +1,29 @@
+require 'bike_container'
+
 shared_examples_for BikeContainer do
 
-  it 'has a default capacity when initilized' do
-    expect(subject.capacity).to eq BikeContainer::DEFAULT_CAPACITY
+  describe 'initialization' do
+
+    subject { described_class.new }
+    let(:bike) { Bike.new }
+
+    it 'has a default capacity when initilized' do
+      expect(subject.capacity).to eq BikeContainer::DEFAULT_CAPACITY
+    end
+
+    it 'does not accept more bikes than capacity' do
+      described_class::DEFAULT_CAPACITY.times do
+        subject.add_bike(bike)
+      end
+      expect{ subject.add_bike(bike) }.to raise_error "#{described_class.name} full"
+    end
+
+    it 'has a variable capacity' do
+      bike_container = described_class.new(50)
+      50.times { bike_container.add_bike Bike.new }
+      expect{ bike_container.add_bike Bike.new }.to raise_error "#{described_class.name} full"
+    end
+
   end
 
   describe 'capacity' do
