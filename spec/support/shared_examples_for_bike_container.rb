@@ -5,7 +5,7 @@ shared_examples_for BikeContainer do
   describe 'initialization' do
 
     subject { described_class.new }
-    let(:bike) { Bike.new }
+    let(:bike) { double(:bike) }
 
     it 'has a default capacity when initilized' do
       expect(subject.capacity).to eq BikeContainer::DEFAULT_CAPACITY
@@ -23,10 +23,6 @@ shared_examples_for BikeContainer do
       50.times { bike_container.add_bike Bike.new }
       expect{ bike_container.add_bike Bike.new }.to raise_error "#{described_class.name} full"
     end
-
-  end
-
-  describe 'capacity' do
 
     it 'can be overriden on initialization' do
       random_capacity = Random.rand(100)
