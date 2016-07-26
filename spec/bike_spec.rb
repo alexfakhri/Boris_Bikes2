@@ -3,7 +3,7 @@ require 'bike'
 describe Bike do
 
   it 'is not broken on initialization' do
-    bike = double(:bike, broken?: false)
+    bike = Bike.new
     expect(bike).not_to be_broken
   end
 
